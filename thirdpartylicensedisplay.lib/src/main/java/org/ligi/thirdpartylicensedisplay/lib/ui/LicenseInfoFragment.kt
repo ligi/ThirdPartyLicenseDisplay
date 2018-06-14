@@ -12,7 +12,7 @@ import org.ligi.kaxtui.alert
 import org.ligi.thirdpartylicensedisplay.lib.R
 import org.ligi.thirdpartylicensedisplay.lib.model.LicenseInfoEntry
 
-class ListFragment : Fragment() {
+class LicenseInfoFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater,
                               container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {

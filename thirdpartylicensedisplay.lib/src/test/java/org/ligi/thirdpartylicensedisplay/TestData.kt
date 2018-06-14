@@ -1,11 +1,6 @@
 package org.ligi.thirdpartylicensedisplay
 
-import com.google.common.truth.Truth.assertThat
-import org.junit.Test
-import org.ligi.thirdpartylicensedisplay.lib.parseLicenseInfo
-
-val testMetaData = """
-0:46 org.jetbrains.kotlin:kotlin-annotation-processing-gradle
+const val TEST_METADATA = """0:46 org.jetbrains.kotlin:kotlin-annotation-processing-gradle
 47:46 org.jetbrains.kotlin:kotlin-compiler-embeddable
 94:46 org.jetbrains.kotlin:kotlin-stdlib
 141:46 org.jetbrains.kotlin:kotlin-stdlib-common
@@ -51,5 +46,53 @@ val testMetaData = """
 2089:46 com.google.code.findbugs:jsr305
 2136:46 com.google.j2objc:j2objc-annotations
 2183:55 org.jvnet.staxex:stax-ex
-2239:102 javax.xml.bind:jaxb-api
+"""
+
+
+val TEST_DATA = """http://www.apache.org/licenses/LICENSE-2.0.txt
+http://www.apache.org/licenses/LICENSE-2.0.txt
+http://www.apache.org/licenses/LICENSE-2.0.txt
+http://www.apache.org/licenses/LICENSE-2.0.txt
+http://www.apache.org/licenses/LICENSE-2.0.txt
+http://www.apache.org/licenses/LICENSE-2.0.txt
+http://www.apache.org/licenses/LICENSE-2.0.txt
+http://www.apache.org/licenses/LICENSE-2.0.txt
+http://www.apache.org/licenses/LICENSE-2.0.txt
+http://www.apache.org/licenses/LICENSE-2.0.txt
+http://www.apache.org/licenses/LICENSE-2.0.txt
+http://www.apache.org/licenses/LICENSE-2.0.txt
+http://www.apache.org/licenses/LICENSE-2.0.txt
+http://www.apache.org/licenses/LICENSE-2.0.txt
+http://www.apache.org/licenses/LICENSE-2.0.txt
+http://www.apache.org/licenses/LICENSE-2.0.txt
+http://www.apache.org/licenses/LICENSE-2.0.txt
+http://www.apache.org/licenses/LICENSE-2.0.txt
+http://www.apache.org/licenses/LICENSE-2.0.txt
+http://www.apache.org/licenses/LICENSE-2.0.txt
+http://www.apache.org/licenses/LICENSE-2.0.txt
+http://www.apache.org/licenses/LICENSE-2.0.txt
+http://www.apache.org/licenses/LICENSE-2.0.txt
+http://www.apache.org/licenses/LICENSE-2.0.txt
+http://www.apache.org/licenses/LICENSE-2.0.txt
+http://www.apache.org/licenses/LICENSE-2.0.txt
+http://www.bouncycastle.org/licence.html
+http://www.bouncycastle.org/licence.html
+http://www.apache.org/licenses/LICENSE-2.0.txt
+http://www.apache.org/licenses/LICENSE-2.0.txt
+http://www.apache.org/licenses/LICENSE-2.0.txt
+http://www.apache.org/licenses/LICENSE-2.0.txt
+http://www.apache.org/licenses/LICENSE-2.0.txt
+http://www.apache.org/licenses/LICENSE-2.0.txt
+http://www.apache.org/licenses/LICENSE-2.0.txt
+http://www.apache.org/licenses/LICENSE-2.0.txt
+http://www.apache.org/licenses/LICENSE-2.0.html
+http://www.opensource.org/licenses/mit-license.php
+http://www.apache.org/licenses/LICENSE-2.0.txt
+http://www.apache.org/licenses/LICENSE-2.0.txt
+http://kxml.cvs.sourceforge.net/viewvc/kxml/kxml2/license.txt?view=markuphttp://creativecommons.org/licenses/publicdomain
+http://www.apache.org/licenses/LICENSE-2.0.txt
+http://www.apache.org/licenses/LICENSE-2.0.txt
+http://www.apache.org/licenses/LICENSE-2.0.txt
+http://www.apache.org/licenses/LICENSE-2.0.txt
+https://glassfish.dev.java.net/public/CDDL+GPL_1_1.html
 """

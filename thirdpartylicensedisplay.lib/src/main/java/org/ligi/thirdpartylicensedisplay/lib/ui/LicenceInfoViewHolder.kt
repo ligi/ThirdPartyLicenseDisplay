@@ -7,29 +7,27 @@ import kotlinx.android.synthetic.main.item_license_entry.view.*
 import org.ligi.kaxt.startActivityFromURL
 import org.ligi.kaxtui.alert
 import org.ligi.thirdpartylicensedisplay.lib.R
-import org.ligi.thirdpartylicensedisplay.lib.model.LicenseInfoEntry
+import org.ligi.thirdpartylicensedisplay.lib.model.LicenseInfo
 
 class LicenceInfoViewHolder(itemView: View?) : RecyclerView.ViewHolder(itemView) {
-    fun bind(entry: LicenseInfoEntry, data: String) {
+    fun bind(entry: LicenseInfo) {
         val nameSplit = entry.name.split(":")
         val context = itemView.context
         itemView.license_text_title.text = nameSplit.last()
         itemView.license_text_detail1.text = nameSplit.first()
 
-        val message = data.substring(entry.position, entry.position + entry.length)
-
-        if (entry.length < 256) {
-            itemView.license_text_detail2.text = message
+        if (entry.info.length < 256) {
+            itemView.license_text_detail2.text = entry.info
         } else {
             itemView.license_text_detail2.text = context.getString(R.string.click_for_details)
         }
         itemView.setOnClickListener {
 
 
-            if (message.startsWith("http")) {
-                context.startActivityFromURL(message)
+            if (entry.info.startsWith("http")) {
+                context.startActivityFromURL(entry.info)
             } else {
-                context.alert(message)
+                context.alert(entry.info)
             }
         }
     }

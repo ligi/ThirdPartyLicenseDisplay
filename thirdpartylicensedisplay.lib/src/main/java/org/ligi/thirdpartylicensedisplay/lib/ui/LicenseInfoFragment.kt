@@ -4,13 +4,12 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import org.ligi.kaxtui.alert
+import org.ligi.thirdpartylicensedisplay.lib.LicenseInfoRepository
 import org.ligi.thirdpartylicensedisplay.lib.R
-import org.ligi.thirdpartylicensedisplay.lib.model.LicenseInfoEntry
 
 class LicenseInfoFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater,
@@ -22,15 +21,7 @@ class LicenseInfoFragment : Fragment() {
         if (data == null || metadataText == null) {
             context?.alert("Cannot load license information - did you add the plugin to your build.gradle file?")
         } else {
-            Log.i("", metadataText)
-            val metaDataList = metadataText.split("\n").filter { it.isNotBlank() }.map {
-                it.split(" ").let {
-                    val positions = it.first().split(":")
-                    LicenseInfoEntry(it[1], positions.first().toInt(), positions.last().toInt())
-                }
-            }
-
-            inflate.adapter = LicenseInfoAdapter(metaDataList, data)
+            inflate.adapter = LicenseInfoAdapter(LicenseInfoRepository(metadataText, data))
 
             inflate.layoutManager = LinearLayoutManager(context)
         }

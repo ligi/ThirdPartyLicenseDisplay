@@ -9,6 +9,22 @@ android {
         minSdkVersion 14
         targetSdkVersion 27
     }
+
+    publishNonDefault true
+
+    flavorDimensions "licenseCollectorPlugin"
+
+    productFlavors {
+        // for
+        google {
+            dimension "licenseCollectorPlugin"
+
+        }
+        // for https://github.com/jaredsburrows/gradle-license-plugin
+        jaredsburrows {
+            dimension "licenseCollectorPlugin"
+        }
+    }
 }
 
 dependencies {

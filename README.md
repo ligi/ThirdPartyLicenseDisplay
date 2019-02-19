@@ -25,6 +25,7 @@ buildscript {
     // Add this line:
     classpath "com.google.gms:oss-licenses:0.9.2"
   }
+}
 ```
 
 and in your app-level `build.gradle` apply this	plugin:

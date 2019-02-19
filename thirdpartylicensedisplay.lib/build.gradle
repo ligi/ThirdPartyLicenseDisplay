@@ -9,22 +9,6 @@ android {
         minSdkVersion 14
         targetSdkVersion 28
     }
-
-    publishNonDefault true
-
-    flavorDimensions "licenseCollectorPlugin"
-
-    productFlavors {
-        // for
-        google {
-            dimension "licenseCollectorPlugin"
-
-        }
-        // for https://github.com/jaredsburrows/gradle-license-plugin
-        jaredsburrows {
-            dimension "licenseCollectorPlugin"
-        }
-    }
 }
 
 dependencies {
@@ -40,6 +24,8 @@ dependencies {
     implementation ('com.github.ligi:KAXTUI:0.5') {
         exclude group: 'com.android.support'
     }
+
+    implementation 'com.squareup.moshi:moshi:1.8.0'
 
     testImplementation 'junit:junit:4.12'
     testImplementation "com.google.truth:truth:0.42"

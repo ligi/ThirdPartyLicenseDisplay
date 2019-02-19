@@ -7,21 +7,32 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.squareup.moshi.JsonAdapter
+import com.squareup.moshi.Moshi
+import com.squareup.moshi.Types
+import okio.Okio
 import org.ligi.kaxtui.alert
-import org.ligi.thirdpartylicensedisplay.lib.LicenseInfoRepository
-import org.ligi.thirdpartylicensedisplay.lib.R
+import org.ligi.thirdpartylicensedisplay.lib.model.LicenseInfo
+
 
 class LicenseInfoFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater,
                               container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        val inflate = inflater.inflate(R.layout.list, container) as RecyclerView
-        val data = readResource("third_party_licenses")
-        val metadataText = readResource("third_party_license_metadata")
-        if (data == null || metadataText == null) {
-            context?.alert("Cannot load license information - did you add the plugin to your build.gradle file?")
+        val inflate = inflater.inflate(org.ligi.thirdpartylicensedisplay.lib.R.layout.list, container) as RecyclerView
+
+        val source = Okio.buffer(Okio.source(context!!.assets.open("open_source_licenses.json")))
+
+        val listMyData = Types.newParameterizedType(List::class.java, LicenseInfo::class.java)
+        val adapter : JsonAdapter<List<LicenseInfo>> = Moshi.Builder().build().adapter(listMyData)
+
+        val list = adapter.fromJson(source)
+
+        if (list == null) {
+            context?.alert("Cannot load license information (open_source_licenses.json in assets) - you need to generate it with the gradle plugin by jaredsburrows")
         } else {
-            inflate.adapter = LicenseInfoAdapter(LicenseInfoRepository(metadataText, data))
+
+            inflate.adapter = LicenseInfoAdapter(list)
 
             inflate.layoutManager = LinearLayoutManager(context)
         }

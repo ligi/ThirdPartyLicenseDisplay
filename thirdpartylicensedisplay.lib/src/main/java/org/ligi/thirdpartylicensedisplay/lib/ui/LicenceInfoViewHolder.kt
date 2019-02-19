@@ -9,7 +9,7 @@ import org.ligi.kaxtui.alert
 import org.ligi.thirdpartylicensedisplay.lib.R
 import org.ligi.thirdpartylicensedisplay.lib.model.LicenseInfo
 
-class LicenceInfoViewHolder(itemView: View?) : RecyclerView.ViewHolder(itemView) {
+class LicenceInfoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     fun bind(entry: LicenseInfo) {
         val nameSplit = entry.name.split(":")
         val context = itemView.context

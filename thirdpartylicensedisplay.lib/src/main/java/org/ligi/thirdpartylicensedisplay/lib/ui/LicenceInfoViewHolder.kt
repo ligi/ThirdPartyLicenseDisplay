@@ -1,9 +1,9 @@
 package org.ligi.thirdpartylicensedisplay.lib.ui
 
 
-import android.support.v4.text.HtmlCompat
-import android.support.v7.app.AlertDialog
-import android.support.v7.widget.RecyclerView
+import androidx.core.text.HtmlCompat
+import androidx.appcompat.app.AlertDialog
+import androidx.recyclerview.widget.RecyclerView
 import android.text.Html
 import android.text.Html.FROM_HTML_MODE_LEGACY
 import android.text.method.LinkMovementMethod

@@ -1,7 +1,7 @@
 package org.ligi.thirdpartylicensedisplay.lib.ui
 
 
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import org.ligi.thirdpartylicensedisplay.lib.R
